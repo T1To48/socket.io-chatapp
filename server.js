@@ -69,7 +69,11 @@ socket_io.on("connection", (socket) => {
     console.log(`${data} has left the Chat`)
   })
 });
-app.use(express.static(path.join(__dirname, "../Socket.io_frontend/dist")));
+const distPath = path.join(__dirname, "../Socket.io_frontend/dist")
+app.use(express.static(distPath));
+app.get("*", (_, res) => {
+  res.sendFile(path.join(distPath, "index.html"));
+});
 process.on("unhandledRejection", (err, promise) => {
   console.log(`😡😡 Error: ${err.message} 😡😡`);
   server.close(() => process.exit(1));
