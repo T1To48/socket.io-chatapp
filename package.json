@@ -1,0 +1,21 @@
+{
+  "name": "socket.io_chatapp",
+  "version": "1.0.0",
+  "description": "socket.io backend",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js",
+    "build-client": "npm run build --prefix ./Socket.io_frontend"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.2"
+  }
+}
