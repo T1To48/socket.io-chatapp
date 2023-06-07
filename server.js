@@ -1,5 +1,4 @@
 import express from "express";
-import path from "path";
 import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
@@ -68,11 +67,6 @@ socket_io.on("connection", (socket) => {
     
     console.log(`${data} has left the Chat`)
   })
-});
-const distPath = path.join(__dirname, "../Socket.io_frontend/dist")
-app.use(express.static(distPath));
-app.get("*", (_, res) => {
-  res.sendFile(path.join(distPath, "index.html"));
 });
 process.on("unhandledRejection", (err, promise) => {
   console.log(`😡😡 Error: ${err.message} 😡😡`);
